@@ -43,18 +43,18 @@
 		if (configOptions.webmaps.length == 3){
 			createMap(2);
 		}
-		$("#mapDiv0").mouseover(function(e) {
+		$("#mapDiv0").mousemove(function(e) {
 			if (mouseDown == 0){
             	mapCount = 0;
 			}
         });
-		$("#mapDiv1").mouseover(function(e) {
+		$("#mapDiv1").mousemove(function(e) {
 			if (mouseDown == 0){
 	            mapCount = 1;
 			}
         });
 		if (configOptions.webmaps.length == 3){
-			$("#mapDiv2").mouseover(function(e) {
+			$("#mapDiv2").mousemove(function(e) {
 				if (mouseDown == 0){
 					mapCount = 2;			
 				}
