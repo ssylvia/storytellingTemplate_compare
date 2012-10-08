@@ -1,0 +1,9 @@
+Title: Storytelling Compare
+
+Short Description:
+This configurable template compares up to three web maps from ArcGIS.com.
+
+Long Description:
+This configurable template compares up to three web maps from ArcGIS.com. Users can sync maps by scale, location, or scale and location.
+
+This template is part of the ArcGIS.com template gallery. These templates can be accessed from the ArcGIS.com map viewer Share window or from the Web Application Templates group. When accessed from the map viewer the templates can be published as a hosted application or you can download the template ZIP file to install on your web server.
