@@ -23,10 +23,8 @@
 	}
 
 	function initMaps(){
-		if($.browser.msie || $.browser.mozilla){
-			if (configOptions.webmaps.length == 3){
-				$("#titleCon2").css('margin-top','-45px');
-		    }
+	    if ($("#titleCon2").position().top === 45){
+			$("#titleCon2").css('margin-top','-45px');
 	  	}
 		if(configOptions.webmaps.length == 2){
 			$("#mapCon2").hide();

@@ -5,7 +5,7 @@
   var sync = true;
   var mapExtent, mapCenter, mapScale;
   var mouseDown = 0;
-	
+
 	function bannerSetup(){
 		document.title = configOptions.title|| response.itemInfo.item.title || "";
         dojo.byId("title").innerHTML = configOptions.title || "";
@@ -21,12 +21,10 @@
 		}
 		dijit.byId('mainWindow').resize();
 	}
-	
+
 	function initMaps(){
-		if($.browser.msie || $.browser.mozilla){
-			if (configOptions.webmaps.length == 3){
-				$("#titleCon2").css('margin-top','-45px');
-		    }
+		if ($("#titleCon2").position().top === 45){
+    		$("#titleCon2").css('margin-top','-45px');
 	  	}
 		if(configOptions.webmaps.length == 2){
 			$("#mapCon2").hide();
@@ -56,17 +54,17 @@
 		if (configOptions.webmaps.length == 3){
 			$("#mapDiv2").mousemove(function(e) {
 				if (mouseDown == 0){
-					mapCount = 2;			
+					mapCount = 2;
 				}
 			});
 		}
 	}
-	
+
 	function enableSyncing(){
 		sync = true;
 		syncMaps();
 	}
-	
+
 	function syncMaps(){
 		if (sync == true){
 			if (syncLoc == true && syncLevel == false){
@@ -108,7 +106,7 @@
 			}
 		}
 	}
-	
+
 	$(document).ready(function(e) {
 		$(document).mousedown(function(e) {
 			mouseDown = 1;
@@ -152,7 +150,7 @@
 			}
         });
     });
-	
+
 	function legendToggle(){
 		sync = false;
 		if ($(".legendCon").is(':visible')){
@@ -178,7 +176,7 @@
 			resizeMaps();
 		}
 	}
-	
+
 	function descriptionToggle(){
 		sync = false;
 		if ($(".descriptionCon").is(':visible')){

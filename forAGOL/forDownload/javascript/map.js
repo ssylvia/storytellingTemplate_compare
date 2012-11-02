@@ -11,7 +11,7 @@
   dojo.requireLocalization("esriTemplate","template");
 
 
-    var map, urlObject;
+    var urlObject;
 	var mapChange = false;
 	var mapExtent;
 	var firstMap = false;
