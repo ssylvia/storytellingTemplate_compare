@@ -262,12 +262,13 @@
 	function hideLoader(){
 		if (mapsLoaded == configOptions.webmaps.length){
 			$("#loadingCon").hide();
+            syncMaps();
 			if(configOptions.webmaps.length == 2){
 				$("#mapDiv1_zoom_slider").show();
 			}
 		}
 		else{
-			mapsLoaded++
+			mapsLoaded++;
 		}
 		$(".esriSimpleSlider").css("left",($(".map").width()-42));
 		$("#mapDiv1_zoom_slider").css("left",($("#mapDiv1").width()-42));

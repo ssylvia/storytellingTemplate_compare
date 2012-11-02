@@ -285,6 +285,7 @@
 	function hideLoader(){
 		if (mapsLoaded == configOptions.webmaps.length){
 			$("#loadingCon").hide();
+            syncMaps();
 			if(configOptions.webmaps.length == 2){
 				$("#mapDiv1_zoom_slider").show();
 			}
