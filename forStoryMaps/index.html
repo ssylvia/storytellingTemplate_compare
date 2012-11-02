@@ -3,9 +3,9 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=7, IE=9">
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="http://servicesbeta.esri.com/jsapi/arcgis/3.3/js/dojo/dijit/themes/tundra/tundra.css">
-    <link rel="stylesheet" type="text/css" href="http://servicesbeta.esri.com/jsapi/arcgis/3.3/js/esri/css/esri.css" />
+    <title>A story map presented by Esri</title>
+    <link rel="stylesheet" type="text/css" href="//servicesbeta.esri.com/jsapi/arcgis/3.3/js/dojo/dijit/themes/tundra/tundra.css">
+    <link rel="stylesheet" type="text/css" href="//servicesbeta.esri.com/jsapi/arcgis/3.3/js/esri/css/esri.css" />
     <link rel="stylesheet" type="text/css" href="css/layout.css"/>
     <link rel="stylesheet" type="text/css" href="css/popup.css"/>
 
@@ -17,8 +17,8 @@
 		  ]
 		};
     </script>
-    <script type="text/javascript" src="http://servicesbeta.esri.com/jsapi/arcgis/?v=3.3compact"></script>
-    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js">
+    <script type="text/javascript" src="//servicesbeta.esri.com/jsapi/arcgis/?v=3.3compact"></script>
+    <script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js">
 	</script>
     <script type="text/javascript" src="javascript/map.js">
     </script>
@@ -30,12 +30,15 @@
     function init(){
 
       configOptions = {
+		//The id for the web mapping applciation item that contains configuration info - in most
+        //cases this will be null.
+        appid:"",
         //The ID for the map from ArcGIS.com. Maximum of 3 maps.
-          webmaps : [{
+        webmaps : [{
 			  'id': '0f1bc846f3634b33916c79fb3e0962c6'
 			  }, {
 			  'id': 'bca9eb9162664887a92a8a246beaa4ad'
-			  }],
+		}],
         //Enter a title, if no title is specified, the webmap's title is used.
         title : "Comparing unemployment and population change reveals regional patterns",
 		//Enter a subtitle, if not specified the ArcGIS.com web map's summary is used
@@ -45,7 +48,7 @@
 		//Display description on map
 		description : true,
         //If the webmap uses Bing Maps data, you will need to provided your Bing Maps Key
-        bingmapskey : "",
+        bingmapskey : "Akt3ZoeZ089qyG3zWQZSWpwV3r864AHStal7Aon21-Fyxwq_KdydAH32LTwhieA8",
         //specify a proxy url if needed
         proxyurl:"",
         //specify the url to a geometry service
@@ -65,11 +68,32 @@
 	  .esriSimpleSlider{
 	  background-color:#dadada;
 	  right:10px;
+	  left:auto;
 	  }
 	  .esriLegendServiceLabel{
 	  display:none;
 	  }
 	</style>
+
+    <!--Social Media Links-->
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">
+        stLight.options({publisher: "77225c91-2742-42f7-b1b4-bddda99a9bde"});
+    </script>
+    <!--END Social Media Links-->
+    <!--Google Analytics Start-->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-26529417-1']);
+        _gaq.push(['_trackPageview']);
+            (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!--Google Analytics End-->
+
   </head>
 
       <body class="tundra">
@@ -84,6 +108,8 @@
                 <div id="subtitle"></div>
               </div>
               <div id="logoArea">
+                <div id="social"><a id="smLink" href="http://storymaps.esri.com" target="_blank">A story map </a><span  class='st_facebook' ></span><span  class='st_twitter' st_via='EsriStoryMaps'></span></div>
+                <div id="logo"><a id="logoLink" href="http://www.esri.com" target="_blank"><img id="logoImg" src="images/esriGlobeLogow.png" alt="Esri - Home"></a></div>
               </div>
             </div>
             <div id="controls" dojotype="dijit.layout.ContentPane" region="center">
