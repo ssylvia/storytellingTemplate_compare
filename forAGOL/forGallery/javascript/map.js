@@ -60,10 +60,13 @@
         configOptions.title = urlObject.query.subtitle;
       }
       if(urlObject.query.webmap){
-        if (dojo.isArray(urlObject.query.webmap) == false){
-        	configOptions.webmaps[0].id = urlObject.query.webmap;
-			configOptions.webmaps[1].id = urlObject.query.webmap;
-		  }
+        if (dojo.isArray(urlObject.query.webmap) == false && getWebMaps(urlObject.query.webmap).length > 1){
+            configOptions.webmaps = getWebMaps(urlObject.query.webmap);
+        }
+        else if (dojo.isArray(urlObject.query.webmap) == false){
+            configOptions.webmaps[0].id = urlObject.query.webmap;
+    		configOptions.webmaps[1].id = urlObject.query.webmap;
+		}
 		  else{
 			dojo.forEach(urlObject.query.webmap,function(webmap,i){
 			  configOptions.webmaps[i] = {"id": webmap};
