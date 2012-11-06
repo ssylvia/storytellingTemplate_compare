@@ -10,12 +10,12 @@
 		document.title = configOptions.title|| response.itemInfo.item.title || "";
         dojo.byId("title").innerHTML = configOptions.title || "";
 		dojo.byId("subtitle").innerHTML = configOptions.subtitle|| response.itemInfo.item.snippet || "";
-		if (configOptions.description == false){
+		if (configOptions.description == false || configOptions.description == "false"){
 			$(".descriptionCon").hide();
 			$(".desToggle").hide();
 			$(".map").css('height','100%');
 		}
-		if (configOptions.legend == false){
+		if (configOptions.legend == false || configOptions.legend == "false"){
 			$(".legendCon").hide();
 			$(".legToggle").hide();
 		}

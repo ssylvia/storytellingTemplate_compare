@@ -57,7 +57,13 @@
         configOptions.title = urlObject.query.title;
       }
       if(urlObject.query.subtitle){
-        configOptions.title = urlObject.query.subtitle;
+        configOptions.subtitle = urlObject.query.subtitle;
+      }
+      if(urlObject.query.description){
+        configOptions.description = urlObject.query.description;
+      }
+      if(urlObject.query.legend){
+        configOptions.legend = urlObject.query.legend;
       }
       if(urlObject.query.webmap){
         if (dojo.isArray(urlObject.query.webmaps) == false && getWebMaps(urlObject.query.webmaps).length > 1){
