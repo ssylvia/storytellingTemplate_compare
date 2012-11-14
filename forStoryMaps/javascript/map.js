@@ -12,7 +12,7 @@
 
 
     var urlObject;
-	var mapChange = false;
+    var mapChange = false;
 	var mapExtent;
 	var firstMap = false;
 	var mapsLoaded = 1;
@@ -20,6 +20,35 @@
 
      function initMap() {
       patchID();
+
+      dojo.some(["ar","he"], function(l){
+         if(dojo.locale.indexOf(l) !== -1){
+           configOptions.isRightToLeft = true;
+           return true;
+         }
+       });
+       var dirNode = document.getElementsByTagName("html")[0];
+       if(configOptions.isRightToLeft){
+         dirNode.setAttribute("dir","rtl");
+         dojo.addClass( dirNode,"esriRtl");
+         //Page Specific
+         dojo.forEach(dojo.query(".legend"),function(leg){
+             dojo.attr(leg,"dir","rtl");
+         });
+         dojo.forEach(dojo.query(".description"),function(leg){
+             dojo.attr(leg,"dir","rtl");
+         });
+       }else{
+         dirNode.setAttribute("dir","ltr");
+         dojo.addClass(dirNode,"esriLtr");
+         //Page Specific
+         dojo.forEach(dojo.query(".legend"),function(leg){
+             dojo.attr(leg,"dir","ltr");
+         });
+         dojo.forEach(dojo.query(".description"),function(leg){
+             dojo.attr(leg,"dir","ltr");
+         });
+       }
 
 	  i18n = dojo.i18n.getLocalization("esriTemplate","template");
 
@@ -66,8 +95,8 @@
         configOptions.legend = urlObject.query.legend;
       }
       if(urlObject.query.webmap){
-        if (dojo.isArray(urlObject.query.webmaps) == false && getWebMaps(urlObject.query.webmaps).length > 1){
-            configOptions.webmaps = getWebMaps(urlObject.query.webmaps);
+        if (dojo.isArray(urlObject.query.webmap) == false && getWebMaps(urlObject.query.webmap).length > 1){
+            configOptions.webmaps = getWebMaps(urlObject.query.webmap);
         }
         else if (dojo.isArray(urlObject.query.webmap) == false){
             configOptions.webmaps[0].id = urlObject.query.webmap;

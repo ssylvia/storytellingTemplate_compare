@@ -12,7 +12,7 @@
 
 
     var urlObject;
-	var mapChange = false;
+    var mapChange = false;
 	var mapExtent;
 	var firstMap = false;
 	var mapsLoaded = 1;
@@ -95,14 +95,14 @@
         configOptions.legend = urlObject.query.legend;
       }
       if(urlObject.query.webmap){
-        if (dojo.isArray(urlObject.query.webmaps) == false && getWebMaps(urlObject.query.webmaps).length > 1){
-            configOptions.webmaps = getWebMaps(urlObject.query.webmaps);
+        if (dojo.isArray(urlObject.query.webmap) == false && getWebMaps(urlObject.query.webmap).length > 1){
+            configOptions.webmaps = getWebMaps(urlObject.query.webmap);
         }
         else if (dojo.isArray(urlObject.query.webmap) == false){
             configOptions.webmaps[0].id = urlObject.query.webmap;
-			configOptions.webmaps[1].id = urlObject.query.webmap;
+    		configOptions.webmaps[1].id = urlObject.query.webmap;
 		}
-        else{
+		  else{
 			dojo.forEach(urlObject.query.webmap,function(webmap,i){
 			  configOptions.webmaps[i] = {"id": webmap};
 			});
@@ -112,8 +112,32 @@
         configOptions.bingmapskey = urlObject.query.bingMapsKey;
       }
 
- 	  initMaps();
-	  bannerSetup();
+	  //is an appid specified - if so read json from there
+	  if(configOptions.appid || (urlObject.query && urlObject.query.appid)){
+		var appid = configOptions.appid || urlObject.query.appid;
+		var requestHandle = esri.request({
+		  url: configOptions.sharingurl + "/" + appid + "/data",
+		  content: {f:"json"},
+		  callbackParamName:"callback",
+		  load: function(response){
+			   if(response.values.title !== undefined){configOptions.title = response.values.title;}
+			   if(response.values.subtitle !== undefined){configOptions.subtitle = response.values.subtitle;}
+			   if(response.values.description !== undefined){configOptions.description = response.values.description; }
+			   if(response.values.legend !== undefined) {configOptions.legend = response.values.legend;}
+			   if(response.values.webmaps !== undefined) {configOptions.webmaps = getWebMaps(response.values.webmaps);}
+
+			   initMaps();
+	  		   bannerSetup();
+		  },
+		  error: function(response){
+			var e = response.message;
+		   alert(i18n.viewer.errors.createMap +  response.message);
+		  }
+		});
+		 }else{
+			initMaps();
+	 		bannerSetup();
+		 }
 
       }
 
@@ -243,7 +267,6 @@
   return layerInfos;
   }
 
-
      function patchID() {  //patch id manager for use in apps.arcgis.com
        esri.id._isIdProvider = function(server, resource) {
        // server and resource are assumed one of portal domains
@@ -306,7 +329,7 @@
 			}
 		}
 		else{
-			mapsLoaded++;
+			mapsLoaded++
 		}
 		$(".esriSimpleSlider").css("left",($(".map").width()-42));
 		$("#mapDiv1_zoom_slider").css("left",($("#mapDiv1").width()-42));
@@ -328,8 +351,8 @@
 		resizeMaps();
     });
 
-    function getWebMaps(webmaps) {
-      if (webmaps.indexOf(',') !== -1) {
+	function getWebMaps(webmaps) {
+	  if (webmaps.indexOf(',') !== -1) {
 		var mapIds = webmaps.split(',');
 		webmapresults = dojo.map(mapIds, function (mapId) {
 		  return {

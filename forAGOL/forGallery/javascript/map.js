@@ -95,8 +95,8 @@
         configOptions.legend = urlObject.query.legend;
       }
       if(urlObject.query.webmap){
-        if (dojo.isArray(urlObject.query.webmaps) == false && getWebMaps(urlObject.query.webmaps).length > 1){
-            configOptions.webmaps = getWebMaps(urlObject.query.webmaps);
+        if (dojo.isArray(urlObject.query.webmap) == false && getWebMaps(urlObject.query.webmap).length > 1){
+            configOptions.webmaps = getWebMaps(urlObject.query.webmap);
         }
         else if (dojo.isArray(urlObject.query.webmap) == false){
             configOptions.webmaps[0].id = urlObject.query.webmap;
