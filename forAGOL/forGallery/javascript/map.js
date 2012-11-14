@@ -125,6 +125,7 @@
 			   if(response.values.description !== undefined){configOptions.description = response.values.description; }
 			   if(response.values.legend !== undefined) {configOptions.legend = response.values.legend;}
 			   if(response.values.webmaps !== undefined) {configOptions.webmaps = getWebMaps(response.values.webmaps);}
+               if(response.values.webmap !== undefined) {configOptions.webmaps = getWebMaps(response.values.webmap);}
 
 			   initMaps();
 	  		   bannerSetup();

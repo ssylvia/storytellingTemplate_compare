@@ -15,3 +15,6 @@
 {"ts":1352908545396,"patch":[[{"diffs":[[0,"igOptions.webmap"],[-1,"s"],[0," = getWebMaps(ur"]],"start1":3518,"start2":3518,"length1":33,"length2":32}]],"length":11601,"saved":false}
 {"ts":1352908547443,"patch":[[{"diffs":[[0,"s.webmap"],[1,"s"],[0," = getWe"]],"start1":3526,"start2":3526,"length1":16,"length2":17}]],"length":11602,"saved":false}
 {"ts":1352908551115,"patch":[[{"diffs":[[0,"y.webmap"],[-1,"s"],[0,");\n     "]],"start1":3563,"start2":3563,"length1":17,"length2":16}]],"length":11601,"saved":false}
+{"contributors":[],"silentsave":true,"ts":1352912584001,"patch":[[{"diffs":[[0,"bmaps);}"],[1,"\n               if(response.values.webmaps !== undefined) {configOptions.webmaps = getWebMaps(response.values.webmaps);}"],[0,"\n\n\t\t\t   "]],"start1":4907,"start2":4907,"length1":16,"length2":136}]],"length":11721,"saved":false}
+{"ts":1352912585980,"patch":[[{"diffs":[[0,"se.values.webmap"],[-1,"s"],[0," !== undefined) "]],"start1":4940,"start2":4940,"length1":33,"length2":32}]],"length":11720,"saved":false}
+{"ts":1352912587785,"patch":[[{"diffs":[[0,"alues.webmap"],[-1,"s"],[0,");}\n\n\t\t\t   i"]],"start1":5018,"start2":5018,"length1":25,"length2":24}]],"length":11719,"saved":false}
