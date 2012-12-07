@@ -9,7 +9,7 @@
     var urlObject;
     var mapChange = false;
     var mapExtent;
-	var firstMap = false;
+    var firstMap = false;
 	var mapsLoaded = 1;
 	var i18n;
 
@@ -156,8 +156,8 @@
 
       mapDeferred.addCallback(function (response) {
 
-		dojo.byId("title"+[j]).innerHTML = response.itemInfo.item.title;
-        dojo.byId("description"+[j]).innerHTML = response.itemInfo.item.description;
+		dojo.byId("title"+[j]).innerHTML = response.itemInfo.item.title || "";
+        dojo.byId("description"+[j]).innerHTML = response.itemInfo.item.description || "";
 
         eval("map"+[j]+" = response.map");
 
