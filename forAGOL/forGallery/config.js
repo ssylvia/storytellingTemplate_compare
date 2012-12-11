@@ -27,7 +27,7 @@
     "category": "<b>Add Webmaps</b>",
     "fields": [{
       "type": "string",
-      "fieldName": "webmaps",
+      "fieldName": "webmap",
       "label": "Webmap IDs:",
       "stringFieldOption": "textarea",
       "tooltip": "Enter webmap ids for maps separated by commas"
