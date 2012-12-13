@@ -6,10 +6,10 @@
   var mapExtent, mapCenter, mapScale;
   var mouseDown = 0;
 
-	function bannerSetup(){
-		document.title = configOptions.title|| response.itemInfo.item.title || "";
-        dojo.byId("title").innerHTML = configOptions.title || "";
-		dojo.byId("subtitle").innerHTML = configOptions.subtitle|| response.itemInfo.item.snippet || "";
+    function bannerSetup(title,subtitle){
+		document.title = configOptions.title || title || "";
+        dojo.byId("title").innerHTML = configOptions.title || title || "";
+		dojo.byId("subtitle").innerHTML = configOptions.subtitle || subtitle || "";
 		if (configOptions.description == false || configOptions.description == "false"){
 			$(".descriptionCon").hide();
 			$(".desToggle").hide();
@@ -23,8 +23,8 @@
 	}
 
 	function initMaps(){
-		if ($("#titleCon2").position().top === 45){
-    		$("#titleCon2").css('margin-top','-45px');
+	    if ($("#titleCon2").position().top === 45){
+			$("#titleCon2").css('margin-top','-45px');
 	  	}
 		if(configOptions.webmaps.length == 2){
 			$("#mapCon2").hide();

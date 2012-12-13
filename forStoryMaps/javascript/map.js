@@ -10,7 +10,7 @@
     var mapChange = false;
     var mapExtent;
     var firstMap = false;
-	var mapsLoaded = 1;
+    var mapsLoaded = 1;
 	var i18n;
 
      function initMap() {
@@ -119,11 +119,9 @@
 			   if(response.values.subtitle !== undefined){configOptions.subtitle = response.values.subtitle;}
 			   if(response.values.description !== undefined){configOptions.description = response.values.description; }
 			   if(response.values.legend !== undefined) {configOptions.legend = response.values.legend;}
-			   if(response.values.webmaps !== undefined) {configOptions.webmaps = getWebMaps(response.values.webmaps);}
                if(response.values.webmap !== undefined) {configOptions.webmaps = getWebMaps(response.values.webmap);}
 
 			   initMaps();
-	  		   bannerSetup();
 		  },
 		  error: function(response){
 			var e = response.message;
@@ -132,7 +130,6 @@
 		});
 		 }else{
 			initMaps();
-	 		bannerSetup();
 		 }
 
       }
@@ -158,6 +155,10 @@
 
 		dojo.byId("title"+[j]).innerHTML = response.itemInfo.item.title || "";
         dojo.byId("description"+[j]).innerHTML = response.itemInfo.item.description || "";
+
+        if(j === 0){
+          bannerSetup(response.itemInfo.item.title,response.itemInfo.item.snippet);
+        }
 
         eval("map"+[j]+" = response.map");
 

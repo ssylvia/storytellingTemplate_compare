@@ -6,10 +6,10 @@
   var mapExtent, mapCenter, mapScale;
   var mouseDown = 0;
 
-	function bannerSetup(){
-		document.title = configOptions.title|| response.itemInfo.item.title || "";
-        dojo.byId("title").innerHTML = configOptions.title || "";
-		dojo.byId("subtitle").innerHTML = configOptions.subtitle|| response.itemInfo.item.snippet || "";
+	function bannerSetup(title,subtitle){
+		document.title = configOptions.title || title || "";
+        dojo.byId("title").innerHTML = configOptions.title || title || "";
+		dojo.byId("subtitle").innerHTML = configOptions.subtitle || subtitle || "";
 		if (configOptions.description == false || configOptions.description == "false"){
 			$(".descriptionCon").hide();
 			$(".desToggle").hide();
